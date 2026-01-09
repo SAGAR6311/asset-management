@@ -18,7 +18,7 @@ import {
 import { toast } from "sonner";
 import { Plus, Search, Edit, Trash2 } from "lucide-react";
 import { useDebounce } from "../hooks/useDebounce";
-import { filterBySearchTerm, formatDate } from "../utils";
+import { formatDate } from "../utils";
 import type { Asset, AssetStatus } from "../types";
 
 export const Assets = () => {
