@@ -190,6 +190,7 @@ export const UtilizationPage = () => {
     if (confirmDialog.utilization) {
       dispatch(completeUtilization(confirmDialog.utilization.id));
       dispatch(unassignAsset(confirmDialog.utilization.assetId));
+      setConfirmDialog({ isOpen: false, type: "complete" });
       toast.success("Utilization marked as completed!");
     }
   };
@@ -200,6 +201,7 @@ export const UtilizationPage = () => {
         dispatch(unassignAsset(confirmDialog.utilization.assetId));
       }
       dispatch(deleteUtilization(confirmDialog.utilization.id));
+      setConfirmDialog({ isOpen: false, type: "delete" });
       toast.success("Utilization deleted successfully!");
     }
   };
