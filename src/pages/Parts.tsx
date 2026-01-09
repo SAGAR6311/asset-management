@@ -15,7 +15,7 @@ import { Plus, Search, Edit, Trash2 } from "lucide-react";
 import { toast } from "sonner";
 import { useDebounce } from "../hooks/useDebounce";
 import { PART_TYPES, PART_CATEGORIES } from "../constants";
-import { filterBySearchTerm, formatDate } from "../utils";
+import { formatDate } from "../utils";
 import { partSchema, type PartFormData } from "../schemas/validationSchemas";
 import type { Part } from "../types";
 
