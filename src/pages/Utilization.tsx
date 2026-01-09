@@ -55,6 +55,21 @@ export const UtilizationPage = () => {
     return assets.filter((asset) => asset.status === "available");
   }, [assets]);
 
+  const editableAssets = useMemo(() => {
+    if (editingUtilization) {
+      const currentAsset = assets.find(
+        (asset) => asset.id === editingUtilization.assetId
+      );
+      if (
+        currentAsset &&
+        !availableAssets.find((a) => a.id === currentAsset.id)
+      ) {
+        return [...availableAssets, currentAsset];
+      }
+    }
+    return availableAssets;
+  }, [assets, availableAssets, editingUtilization]);
+
   const activeUtilizations = useMemo(() => {
     return utilizations.filter((util) => util.status === "active");
   }, [utilizations]);
@@ -445,7 +460,7 @@ export const UtilizationPage = () => {
             onChange={(e) =>
               setFormData({ ...formData, assetId: e.target.value })
             }
-            options={availableAssets.map((asset) => {
+            options={editableAssets.map((asset) => {
               const part = parts.find((p) => p.id === asset.partId);
               return {
                 value: asset.id,

@@ -32,7 +32,6 @@ export const Sidebar = ({ isOpen, onClose }: SidebarProps) => {
         <div className="p-6 border-b border-slate-200 flex items-center justify-between">
           <div>
             <h1 className="text-xl font-bold text-slate-900">Asset Manager</h1>
-            <p className="text-sm text-slate-500 mt-1">Construction Co.</p>
           </div>
           <button
             onClick={onClose}
